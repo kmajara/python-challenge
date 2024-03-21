@@ -2,8 +2,8 @@ import os
 import csv
 
 # provide file path
-file_path = os.path.join('PyPoll','Resources','election_data.csv')
-output_path = os.path.join('PyPoll', 'analysis', 'election_analysis.txt')
+file_path = os.path.join('Resources','election_data.csv')
+output_path = os.path.join('analysis', 'election_analysis.txt')
 
 #variables
 total_votes = 0
@@ -36,7 +36,7 @@ with open(file_path, 'r') as csvfile:
     elif row[2] == candidate_3:
         raymon_anthony_votes +=1
     
-     #calculate percentages of votes won 
+#calculate percentages of votes won 
   css_percentage = round(charles_casper_votes/total_votes * 100, 3)
   ddg_percentage = round(diana_degette_votes/total_votes * 100, 3)
   rad_percentage = round(raymon_anthony_votes/total_votes * 100, 3)
@@ -47,6 +47,7 @@ with open(file_path, 'r') as csvfile:
   winner = candidates[votes.index(max(votes))]
 
    
+#prepare output for print
 output = ("\nElection Results\n"
           f"\n------------------------------'\n\n"
   f"Total Votes: {total_votes}\n"
@@ -58,8 +59,10 @@ output = ("\nElection Results\n"
   f"\nWinner: {winner}\n"
   f"\n------------------------------\n")
 
+#print output
 print(output)
 
+#write to txtfile and save in output path
 with open(output_path, "w") as txtfile: 
    txtfile.write(output)
  

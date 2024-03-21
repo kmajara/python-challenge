@@ -15,7 +15,6 @@ with open(file_path, 'r') as csvfile:
 
   #Read the header row and print header
   csv_header = next(csv_reader)
-  #print(f"CSV Header: {csv_header}")
   
   # Count the total number of rows/months
   total_months = sum(1 for row in csv_reader)
@@ -38,7 +37,7 @@ with open(file_path, 'r') as csvfile:
     #calculate totals for columns and rows
     net_total_col += round(column_value,None)
    
-    #current_profit_loss = int(row[1])
+    #Assign profit/loss
     profit_loss = float(row[1])
 
     #add profit profit/loss to the list
@@ -67,8 +66,10 @@ output = ("\nFinancial Analysis\n"
   f"Greatest Increase in Profits: ${greatest_increase} \n"
   f"Greatest Decrease in Profits: ${greatest_decrease} \n")
 
+#print out results
 print(output)
 
+#Write results to a textfile and save in output path
 with open(output_path, "w") as txtfile: 
     txtfile.write(output)
  
